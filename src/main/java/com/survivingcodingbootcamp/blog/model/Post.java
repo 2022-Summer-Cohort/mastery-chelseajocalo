@@ -1,6 +1,7 @@
 package com.survivingcodingbootcamp.blog.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -17,6 +18,8 @@ public class Post {
     private String content;
     @ManyToMany
     private Collection<Hashtag> hashtags;
+    @OneToMany(mappedBy = "post")
+    private Collection<Comment> comments;
     protected Post() {
     }
 
@@ -26,6 +29,7 @@ public class Post {
         this.topic = topic;
         this.content = content;
         this.hashtags = Arrays.asList(hashtags);
+
     }
 
     public Post(String title, String author, Topic topic, String content) {
@@ -62,6 +66,12 @@ public class Post {
         hashtags.add(hashtag);
     }
 
+    public Collection<Comment> getComments() {
+        return comments;
+    }
+    public void addComment(Comment comment){
+        comments.add(comment);
+    }
     @Override
     public String toString() {
         return "Post{" +

@@ -36,24 +36,18 @@
     <br>
 
     <div class="new-post-form">
-        <h3>To Add a new post to this topic, complete the fields below.</h3>
+        <h3>To add a new post to this topic, complete the fields below.</h3>
         <br>
         <br>
         <form th:action="'/topics/' + ${topic.id} + '/addPost'"  method="post">
-            <label for="PostTitle">Enter Post Title: &nbsp;</label>
-            <input type="text" name="title" id="PostTitle">
+
+            <input type="text" name="title" id="PostTitle" placeholder="Title">
             <br>
             <br>
-            <label for="authorName">Enter author name: &nbsp;</label>
-            <input type="text" name="author" id="authorName">
+            <input type="text" name="author" id="authorName" placeholder="Author">
             <br>
             <br>
-            <p><label for="postContent">Type your post here: &nbsp;</label></p>
-            <textarea name="content" id="postContent" cols="30" rows="10"></textarea>
-            <br>
-            <br>
-<!--            <label for="postHashtag">Enter a hashtag for your post: &nbsp;</label>-->
-<!--            <input type="text" th:field="*{hashtag}" id="postHashtag">-->
+            <textarea name="content" id="postContent" cols="30" rows="10" placeholder="Type your post here"></textarea>
             <br>
             <br>
             <input type="submit" value="Submit">

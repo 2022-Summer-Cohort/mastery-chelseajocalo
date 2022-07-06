@@ -6,46 +6,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title th:text="${post.title}">Document</title>
     <link rel="icon" href="/assets/icon.png">
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/style.css"/>
+    <link rel="stylesheet" href="/css/layout.css"/>
 </head>
 
 <body>
-    <div class="container">
-        <header class="header">
-            <h1 class="header__title">Surviving Coding Boot Camp</h1>
-            <nav class="header__nav">
-                <div class="header__nav-item"><a href="/" class="header__nav-link">Home</a></div>
-                <div class="header__nav-item"><a href="/hashtags" class="header__nav-link">Hashtags</a></div>
-            </nav>
-        </header>
-        <main class="main-content">
-            <section class="main-content__post post">
-                <h3 class="post__topic-title main-content__topic-title"><a th:text="${post.topic.name}" th:href="'/topics/'+${post.topic.id}" class="main-content__topic-link post__topic-link">Topic</a>
-                    </h3>
+<div class="container">
+    <header class="header">
+        <h1 class="header__title">Surviving Coding Boot Camp</h1>
+        <nav class="header__nav">
+            <div class="header__nav-item"><a href="/" class="header__nav-link">Home</a></div>
+            <div class="header__nav-item"><a href="/hashtags" class="header__nav-link">Hashtags</a></div>
+        </nav>
+    </header>
+    <main class="main-content">
+        <section class="main-content__post post">
+            <h3 class="post__topic-title main-content__topic-title"><a th:text="${post.topic.name}"
+                                                                       th:href="'/topics/'+${post.topic.id}"
+                                                                       class="main-content__topic-link post__topic-link">Topic</a>
+            </h3>
+            <div class="post-content">
                 <h2 th:text="${post.title}" class="post__title main-content__topic-title">Post Title</h2>
-                    <div class="author_line">
-                        <p> written by: &nbsp;&nbsp;
-                        <h3 th:text="${post.author}" class="post__author main-content__topic-title">Post Author</h3>
-                        </p>
-                    </div>
-
+                <div class="author_line">
+                    <p> written by: &nbsp;&nbsp;
+                    <h3 th:text="${post.author}" class="post__author main-content__topic-title">Post Author</h3>
+                    </p>
+                </div>
                 <br>
-                <p th:text="${post.content}" class="post__content">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque blanditiis, aut quae fuga id quis ut. 
-                    Eligendi necessitatibus blanditiis officia, odio deleniti natus molestiae fugiat ex quod vel aliquam illum.
+                <p th:text="${post.content}" class="post__content">Lorem ipsum dolor sit, amet consectetur adipisicing
+                    elit. Doloremque blanditiis, aut quae fuga id quis ut.
+                    Eligendi necessitatibus blanditiis officia, odio deleniti natus molestiae fugiat ex quod vel aliquam
+                    illum.
                 </p>
-            </section>
-        </main>
-        <br>
-        <br>
-
-        <form th:action="'/posts/' + ${post.id} + '/addHashtag'" method="post">
-            <label for="HashtagId">Enter Hashtag Here:</label>
-            <input type="text" name="hashtag" id="HashtagId">
-            <input type="submit">
-        </form>
-    </div>
-
+                <form th:action="'/posts/' + ${post.id} + '/addHashtag'" method="post" class="add-hashtag-to-post-form">
+                    <input type="text" name="hashtag" id="HashtagId" placeholder="Add hashtag to post">
+                    <input type="submit">
+                </form>
+                <br>
+                <br>
+                <section class="comments">
+                    <h2>Comments:</h2>
+                    <ul class="comments-list" >
+                        <li th:each="comment:${post.comments}" >
+                            <p th:text="${comment.comment}"></p>
+                        </li>
+                    </ul>
+                    <br>
+                    <br>
+                    <form th:action="'/posts/' + ${post.id} + '/addComment'" method="post">
+                        <textarea cols="20" rows="5" name="comment" placeholder="type comment here"></textarea>
+                        <input type="submit">
+                    </form>
+                </section>
+            </div>
+        </section>
+    </main>
+</div>
 </body>
 
 </html>

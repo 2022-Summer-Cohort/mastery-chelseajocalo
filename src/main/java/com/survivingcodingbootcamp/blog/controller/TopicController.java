@@ -9,6 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.swing.text.html.Option;
+import java.util.Optional;
+
 @Controller
 @RequestMapping("/topics")
 public class TopicController {
@@ -33,5 +36,16 @@ public class TopicController {
         postRepo.save(post);
         return "redirect:/topics/" +id;
     }
+
+    @PostMapping("/addTopic")
+        public String addTopicToHomePage(@RequestParam String topic) {
+            Optional<Topic> topicOptional = topicRepo.findByNameIgnoreCase(topic);
+            if(!topicOptional.isPresent()){
+                Topic topic1 = new Topic(topic);
+                topicRepo.save(topic1);
+            }
+
+            return "redirect:/";
+        }
 
 }

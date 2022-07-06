@@ -3,22 +3,106 @@
     padding: 0px;
     box-sizing: border-box;
 }
+.container{
+    height: 100vh;
+}
 .header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 10px;
+    border-bottom: 10px #C89F9C solid;
+}
+.header__nav{
+    width:50%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.welcome{
+    text-align: center;
+    font-style: oblique;
+
 }
 .topics{
     padding: 10px;
 }
+.topics__title{
+    text-align: center;
+    font-size: 30px;
+}
 .topics__nav{
     display:flex;
     flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.topics__nav a{
+    margin: auto 15px;
+    padding-bottom: 15px;
+
+   
+}
+.hashtags{
+  
+    padding-top: 15px;
+    text-align: center;
+    font-size: 30px;
 }
 .hashtags__nav{
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
+    padding-bottom: 50px;
+}
+.hashtags__nav a{
+    text-decoration: none;
+    padding-top: 15px;
+}
+.hashtag-form{
+    text-align: center;
+}
+.add-new-topics{
+    margin: auto;
+    text-align: center;
 }
 .welcome{
     padding: 10px;
+}
+.topic{
+    padding-top: 15px;
+    text-align: center;
+}
+.new-post-form{
+    text-align: center;
+}
+.post-content{
+    padding-top: 50px;
+    width: 85%;
+    margin: auto;
+}
+.post__content{
+    padding-bottom: 50px;
+}
+
+.hashtag{
+    padding-top: 15px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.post-list{
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+}
+.post-list a{
+    text-decoration: none;
+    padding-bottom: 15px;
+}
+.comments{
+    border-top: 5px #C89F9C solid;
+    
 }
 @media screen and (min-width:1000px){
     .container{
@@ -34,4 +118,11 @@
     width: 30%;
     align-items: center;
 
+}
+.comments-list{
+    list-style: none;
+    font-style: italic;
+}
+.comments-list li{
+    border-bottom: 1px #C89F9C dotted;
 }

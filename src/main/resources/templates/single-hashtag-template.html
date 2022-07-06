@@ -24,11 +24,11 @@
     </header>
 <main class = "main-content">
     <section class ="main-content__hashtag hashtag">
-        <h2 th:text="${hashtag.name}" class="hashtag__title main-content__title">
+        <h2 th:text="'#' + ${hashtag.name}" class="hashtag__title main-content__title">
             Hashtag
         </h2>
-        <div th:each="post: ${hashtag.posts}">
-            <a th:text="${post.title}" th:href="'/posts/' +${post.id}" href="#"
+        <div class="post-list">
+            <a th:each="post: ${hashtag.posts}" th:text="${post.title}" th:href="'/posts/' +${post.id}" href="#"
                class = "posts__nav-link"></a>
         </div>
     </section>
