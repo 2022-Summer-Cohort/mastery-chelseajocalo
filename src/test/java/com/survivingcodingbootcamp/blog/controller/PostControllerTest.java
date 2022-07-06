@@ -2,6 +2,7 @@ package com.survivingcodingbootcamp.blog.controller;
 
 import com.survivingcodingbootcamp.blog.model.Post;
 import com.survivingcodingbootcamp.blog.model.Topic;
+import com.survivingcodingbootcamp.blog.repository.HashtagRepository;
 import com.survivingcodingbootcamp.blog.repository.PostRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,11 +22,12 @@ public class PostControllerTest {
     private PostController underTest;
     private Model model;
     private Post testPost;
+    private HashtagRepository hashtagRepo;
 
     @BeforeEach
     void setUp() {
         PostRepository postRepo = mock(PostRepository.class);
-        underTest = new PostController(postRepo);
+        underTest = new PostController(postRepo, hashtagRepo);
         model = mock(Model.class);
         testPost = mock(Post.class);
         Optional<Post> testOptional = Optional.of(testPost);

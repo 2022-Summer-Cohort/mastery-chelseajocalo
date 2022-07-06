@@ -1,15 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=Montserrat&display=swap');
 
+ @import url('http://fonts.cdnfonts.com/css/barlow');
+
+
+                
+
 :root{
-    --dark-background: #2F3E46;
-    --text: #cad2c5;
-    --light-highlight: #84A98C;
-    --dark-highlight: #52796f;
-    --light-background:#354f52;
+    --dark-background: #C89F9C;
+    --text: black;
+    --light-highlight: #EEE2Df, .2;
+    --dark-highlight: #C89F9C;
+    --light-background:#EEE2DF;
 }
 
 h1{
-    font-family: 'Inconsolata', monospace;
+    font-family: 'barlow', sans-serif;
     font-size: 40px;
 }
 h2{
@@ -19,7 +24,7 @@ h2{
     background-color: var(--light-background);
 }
 html{
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'barlow', sans-serif;
     font-size: 16px;
     background-color: var(--dark-background);
     color: var(--text);
@@ -41,4 +46,11 @@ a{
 }
 a:hover{
     color: var(--light-highlight);
+}
+.topics__nav a{
+    background-color: var(--light-highlight);
+}
+.hashtag h2{
+    font-size: 30px;
+    padding-bottom: 20px;
 }

@@ -32,6 +32,29 @@
             </nav>
         </section>
     </main>
+    <br>
+    <br>
+
+    <div class="new-post-form">
+        <h3>To add a new post to this topic, complete the fields below.</h3>
+        <br>
+        <br>
+        <form th:action="'/topics/' + ${topic.id} + '/addPost'"  method="post">
+
+            <input type="text" name="title" id="PostTitle" placeholder="Title">
+            <br>
+            <br>
+            <input type="text" name="author" id="authorName" placeholder="Author">
+            <br>
+            <br>
+            <textarea name="content" id="postContent" cols="30" rows="10" placeholder="Type your post here"></textarea>
+            <br>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+
 </div>
 </body>
 
